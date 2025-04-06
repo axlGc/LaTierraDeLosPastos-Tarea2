@@ -22,6 +22,9 @@ function App() {
                             <li className="nav-item">
                                 <Link className="nav-link" to="/sobre-carnaval">Sobre el Carnaval</Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/Iniciar Sesion">Iniciar Sesion</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
