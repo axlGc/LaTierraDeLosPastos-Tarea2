@@ -14,7 +14,7 @@ function SobrePasto() {
             <p className="text-justify">
                 La ciudad es famosa por su gastronomía, sus festivales y su gente amable. Entre los platos típicos se encuentran el cuy asado y el helado de paila, que son un deleite para los visitantes.
             </p>
-            <img src="ruta/a/tu/imagen.jpg" alt="Paisaje Pastuso" className="img-fluid rounded mt-3" style={{ maxWidth: '100%', height: 'auto' }} />
+            <img src="../Img_Video/pasto.jpg" alt="Paisaje Pastuso" className="img-fluid rounded mt-3" style={{ maxWidth: '100%', height: 'auto' }} />
              </div>
         </div>
         </div>
