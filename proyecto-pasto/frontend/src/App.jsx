@@ -29,7 +29,7 @@ function App() {
                     </div>
                 </div>
             </nav>
-
+    
             {/* Rutas */}
             <Routes>
                 <Route path="/sobre-pasto" element={<SobrePasto />} />
