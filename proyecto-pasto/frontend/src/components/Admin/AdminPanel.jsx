@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ListaEventos from './ListaEventos';
 import ListaGuias from './ListaGuias';
 import ListaRutas from './ListaRutas';
+import ListaLugares from './ListaLugares';
 import FormularioEvento from './FormularioEvento';
 
 function AdminPanel() {
@@ -22,6 +23,7 @@ function AdminPanel() {
 
   return (
     <div>
+      
       <h1>Panel del Administrador</h1>
       <h2>Rutas y Lugares</h2>
       <ListaRutas />

@@ -3,17 +3,18 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import SobrePasto from './components/SobrePasto';
 import SobreCarnaval from './components/SobreCarnaval';
 import Introduccion from './components/Introduccion';
-//import Alojamientos from './components/GuiaTuristico/Alojamientos';
-//import InfoContacto from './components/GuiaTuristico/InfoContacto';
+import Alojamientos from './components/GuiaTuristico/Alojamientos';
+import InfoContacto from './components/GuiaTuristico/InfoContacto';
 //import PanelPersonal from './components/GuiaTuristico/PanelPersonal';
 //import PuntosDeInteres from './components/GuiaTuristico/PuntosDeInteres';
 //import Restaurantes from './components/GuiaTuristico/Restaurantes';
-import RutasTuristicas from './components/GuiaTuristico/RutasTuristicas';
+//import RutasTuristicas from './components/GuiaTuristico/RutasTuristicas';
 import AdminPanel from './components/Admin/Adminpanel'; // Importa el componente AdminPanel
 
 
 function App() {
   return (
+    
     <Router>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
@@ -40,8 +41,10 @@ function App() {
               <li className="nav-item">
                 <Link className="nav-link" to="/iniciar-sesion">Iniciar Sesión</Link>
               </li>
+              
             </ul>
           </div>
+          
         </div>
       </nav>
 
@@ -50,7 +53,7 @@ function App() {
         <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
         <Route path="/" element={<Introduccion />} />
         <Route path="/admin" element={<AdminPanel />} /> {/* Ruta para el AdminPanel */}
-        <Route path="/guia-turistico" element={<RutasTuristicas />} />
+        <Route path="guia-turistico" element={<InfoContacto/>} />
 
       </Routes>
     </Router>
