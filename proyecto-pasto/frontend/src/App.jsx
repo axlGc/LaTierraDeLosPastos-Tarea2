@@ -30,7 +30,6 @@ function App() {
                 </div>
             </nav>
     
-            {/* Rutas */}
             <Routes>
                 <Route path="/sobre-pasto" element={<SobrePasto />} />
                 <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
