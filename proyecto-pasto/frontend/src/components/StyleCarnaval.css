@@ -53,3 +53,13 @@ h3,h2 {
 .card-body {
     background-color: #ffffff; /* Fondo blanco */
 }
+
+/* StyleCarnaval.css o un archivo CSS específico para el navbar */
+.navbar {
+    background-image: url('/navbar-background.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover; /* Asegura que la imagen cubra todo el navbar */
+    background-position: center; /* Centra la imagen */
+    color: white; /* Cambia el color del texto si es necesario */
+    height: 100px; /* Ajusta la altura según sea necesario */
+    padding: 20px 0; /* Agrega un espaciado interno si es necesario */
+}
