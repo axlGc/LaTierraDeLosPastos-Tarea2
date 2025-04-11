@@ -1,58 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-function ListaEventos() {
-  const [eventos, setEventos] = useState([]);
-
-  useEffect(() => {
-    // Simulación de llamada a API para obtener eventos
-    fetch('http://localhost:5000/api/eventos')
-      .then((response) => response.json())
-      .then((data) => setEventos(data))
-      .catch((error) => console.error('Error:', error));
-  }, []);
-
-  const eliminarEvento = (id) => {
-    // Simulación de llamada a API para eliminar evento
-    fetch(`http://localhost:5000/api/eventos/${id}`, { method: 'DELETE' })
-      .then(() => {
-        setEventos(eventos.filter((evento) => evento.id !== id));
-      })
-      .catch((error) => console.error('Error:', error));
-  };
-
-  const editarEvento = (id, eventoActualizado) => {
-    // Simulación de llamada a API para actualizar evento
-    fetch(`http://localhost:5000/api/eventos/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(eventoActualizado),
-    })
-      .then(() => {
-        setEventos(eventos.map((evento) => evento.id === id ? eventoActualizado : evento));
-      })
-      .catch((error) => console.error('Error:', error));
-  };
-
+function ListaEventos({ eventos, editarEvento, eliminarEvento }) {
   return (
     <div>
-      <h3>Eventos del Carnaval</h3>
-      <ul>
-        {eventos.map((evento) => (
-          <li key={evento.id}>
-            <p>{evento.nombre}</p>
-            <p>{evento.descripcion}</p>
-            <button onClick={() => eliminarEvento(evento.id)}>Eliminar</button>
-            <button onClick={() => editarEvento(evento.id, { nombre: 'Evento Actualizado', descripcion: 'Descripción actualizada' })}>
-              Editar
-            </button>
-          </li>
-        ))}
-      </ul>
+      <h2>Eventos del Carnaval</h2>
+      {eventos.length === 0 ? (
+        <p>No hay eventos registrados.</p>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          {eventos.map((evento) => (
+            <div
+              key={evento.id}
+              style={{
+                border: '1px solid #ccc',
+                padding: '1rem',
+                borderRadius: '10px',
+                backgroundColor: '#f9f9f9'
+              }}
+            >
+              <h3>{evento.titulo}</h3>
+              <p><strong>Explicación:</strong> {evento.descripcion}</p>
+              <p><strong>Fecha:</strong> {new Date(evento.fecha).toLocaleDateString('es-CO', { weekday: 'short', day: 'numeric', month: 'long' })}</p>
+              <p><strong>Hora:</strong> 9:00 AM</p>
+              <p><strong>Lugar:</strong> {evento.ubicacion}</p>
+              <p><strong>Actividades:</strong> Artes plásticas, música, teatro, poesía.</p>
+              <div style={{ marginTop: '10px' }}>
+                <button onClick={() => editarEvento(evento)}>Editar</button>
+                <button onClick={() => eliminarEvento(evento)} style={{ marginLeft: '10px' }}>Eliminar</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 export default ListaEventos;
-

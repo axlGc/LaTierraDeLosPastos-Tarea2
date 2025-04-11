@@ -1,42 +1,35 @@
 import React, { useState } from 'react';
 
-function FormularioEvento() {
-  const [nuevoEvento, setNuevoEvento] = useState({ nombre: '', descripcion: '' });
+function FormularioEvento({ crearEvento }) {
+  const [evento, setEvento] = useState({ titulo: '', descripcion: '', fecha: '', ubicacion: '' });
 
-  const agregarEvento = async () => {
-    try {
-      // Simulación de llamada a API para agregar evento
-      await fetch('http://localhost:5000/api/eventos', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(nuevoEvento),
-      });
-      setNuevoEvento({ nombre: '', descripcion: '' });
-    } catch (error) {
-      console.error('Error:', error);
+  const handleChange = (e) => {
+    setEvento({ ...evento, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch('http://localhost:3001/api/eventos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(evento)
+    });
+
+    const data = await res.json();
+    if (res.ok) {
+      crearEvento(data);
+      setEvento({ titulo: '', descripcion: '', fecha: '', ubicacion: '' });
     }
   };
 
   return (
-    <div>
-      <h3>Agregar Evento</h3>
-      <form>
-        <input
-          type="text"
-          value={nuevoEvento.nombre}
-          onChange={(e) => setNuevoEvento({ ...nuevoEvento, nombre: e.target.value })}
-          placeholder="Nombre del evento"
-        />
-        <textarea
-          value={nuevoEvento.descripcion}
-          onChange={(e) => setNuevoEvento({ ...nuevoEvento, descripcion: e.target.value })}
-          placeholder="Descripción"
-        />
-        <button type="button" onClick={agregarEvento}>Agregar</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input name="titulo" placeholder="Título" value={evento.titulo} onChange={handleChange} required />
+      <textarea name="descripcion" placeholder="Descripción" value={evento.descripcion} onChange={handleChange} />
+      <input type="date" name="fecha" value={evento.fecha} onChange={handleChange} required />
+      <input name="ubicacion" placeholder="Ubicación" value={evento.ubicacion} onChange={handleChange} required />
+      <button type="submit">Agregar Evento</button>
+    </form>
   );
 }
 

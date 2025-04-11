@@ -8,6 +8,7 @@ import InfoContacto from './components/GuiaTuristico/InfoContacto';
 import AdminPanel from './components/Admin/Adminpanel';
 import navbarBackground from "../public/Img_Video/navbar.jpg";
 import CarnivalDays from './components/CarnivalDays';
+import Login from './components/Login';
 import './App.css'; // Asegúrate de importar tu archivo CSS
 
 function App() {
@@ -64,21 +65,37 @@ function App() {
                   ¿Que hacer?
                 </Link>
               </li>
+
               <li className="nav-item">
-                <Link className="nav-link" to="/guia-turistico">
-                  
+                <Link
+                  className="nav-link"
+                  to="/guia-turistico"
+                  style={{ color: 'white' }}
+                >
+                  GuiaTuristico
                 </Link>
               </li>
+
               <li className="nav-item">
-                <Link className="nav-link" to="/admin">
-                  
+                <Link
+                  className="nav-link"
+                  to="/admin"
+                  style={{ color: 'white' }}
+                >
+                  Admin
                 </Link>
               </li>
+
               <li className="nav-item">
-                <Link className="nav-link" to="/iniciar-sesion">
-                  
+                <Link
+                  className="nav-link"
+                  to="/iniciar-sesion"
+                  style={{ color: 'white' }}
+                >
+                  Acceso
                 </Link>
               </li>
+
             </ul>
           </div>
         </div>
@@ -90,10 +107,8 @@ function App() {
         <Route path="/" element={<Introduccion />} />
         <Route path="/admin" element={<AdminPanel />} />
         <Route path="/guia-turistico" element={<InfoContacto />} />
-        <Route
-          path="/carnival-days"
-          element={<CarnivalDays className="carnival-days-page" />}
-        />
+        <Route path="/carnival-days" element={<CarnivalDays className="carnival-days-page" />} />
+        <Route path="/iniciar-sesion" element={<Login />} />
       </Routes>
     </Router>
   );

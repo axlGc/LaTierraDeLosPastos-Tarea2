@@ -21,7 +21,7 @@ function CarnivalDays() {
                 actividades en cada comuna de la ciudad forman parte de la
                 agenda pre-carnaval.
               </p>
-              <a href="#" className="btn btn-primary">
+              <a href="./Admin/ListaEventos.jsx" className="btn btn-primary">
                 Programación
               </a>
             </div>

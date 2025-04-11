@@ -1,39 +1,67 @@
-// backend/app.js
 const express = require('express');
+const mysql = require('mysql2');
 const cors = require('cors');
-const dotenv = require('dotenv');
-
-// Configurar variables de entorno
-dotenv.config();
+const authRoutes = require('./routes/auth');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const port = 3001;
 
-// Middlewares
+// Middleware
 app.use(cors());
 app.use(express.json());
 
 // Conexión a la base de datos
-const db = require('./db');
-
-// Rutas
-const authRoutes = require('./routes/auth');
-const rutasRoutes = require('./routes/rutas');
-const eventosRoutes = require('./routes/eventos');
-const toursRoutes = require('./routes/tours');
-
-// Usar rutas
-app.use('/api/auth', authRoutes);
-app.use('/api/rutas', rutasRoutes);
-app.use('/api/eventos', eventosRoutes);
-app.use('/api/tours', toursRoutes);
-
-// Ruta base
-app.get('/', (req, res) => {
-  res.send('🌎 Backend de La Tierra de los Pastos funcionando');
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '', // Cambia esto si tu MySQL tiene contraseña
+  database: 'databasepasto'
 });
 
-// Iniciar servidor
-app.listen(PORT, () => {
-  console.log(`🚀 Servidor backend corriendo en http://localhost:${PORT}`);
+// Verifica conexión
+db.connect((err) => {
+  if (err) {
+    console.error('Error al conectar a MySQL:', err);
+  } else {
+    console.log('Conexión exitosa a la base de datos MySQL');
+  }
+});
+
+// Ruta de prueba
+app.get('/', (req, res) => {
+  res.send('Servidor backend del Carnaval está funcionando');
+});
+
+// Ruta de login
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+
+  console.log('Datos recibidos:', req.body);
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Faltan datos' });
+  }
+
+  const query = 'SELECT * FROM usuarios WHERE email = ? AND password = ?';
+  db.query(query, [email, password], (err, results) => {
+    if (err) {
+      console.error('Error en la consulta:', err);
+      return res.status(500).json({ message: 'Error interno del servidor' });
+    }
+
+    if (results.length > 0) {
+      const user = results[0];
+      res.json({
+        nombre: user.nombre,
+        rol: user.rol
+      });
+    } else {
+      res.status(401).json({ message: 'Credenciales incorrectas' });
+    }
+  });
+});
+app.use('/api', authRoutes);
+// Iniciar el servidor
+app.listen(port, () => {
+  console.log(`Servidor backend escuchando en http://localhost:${port}`);
 });
