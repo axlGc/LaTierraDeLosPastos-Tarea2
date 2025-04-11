@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Login from './components/Login';
 import SobrePasto from './components/SobrePasto';
 import SobreCarnaval from './components/SobreCarnaval';
-import Introduccion from './components/Introduccion'; // Importa el componente Introduccion
+import Introduccion from './components/Introduccion';
+
 
 function App() {
     return (
@@ -23,15 +25,15 @@ function App() {
                                 <Link className="nav-link" to="/sobre-carnaval">Sobre el Carnaval</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/Iniciar Sesion">Iniciar Sesion</Link>
+                             <Link className="nav-link" to="/login">Acceso Guía/Admin</Link>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
-            {/* Rutas */}
+        
             <Routes>
+                <Route path="/login" element={<Login />} />
                 <Route path="/sobre-pasto" element={<SobrePasto />} />
                 <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
                 <Route path="/" element={<Introduccion />} /> // Muestra la introducción en la página principal
