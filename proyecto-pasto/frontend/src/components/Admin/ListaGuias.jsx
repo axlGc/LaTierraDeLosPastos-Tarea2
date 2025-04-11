@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 
 function ListaGuias() {
@@ -29,6 +30,17 @@ function ListaGuias() {
             <p>{guia.nombre}</p>
             <button onClick={() => eliminarGuia(guia.id)}>Eliminar</button>
           </li>
+=======
+import React from 'react';
+
+function ListaGuias({ guias }) {
+  return (
+    <div>
+      <h3>Guías Turísticos Registrados</h3>
+      <ul>
+        {guias.map((guia) => (
+          <li key={guia.id}>{guia.nombre}</li>
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
         ))}
       </ul>
     </div>
@@ -36,4 +48,7 @@ function ListaGuias() {
 }
 
 export default ListaGuias;
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333

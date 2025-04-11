@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 
 function ListaRutas() {
@@ -28,6 +29,19 @@ function ListaRutas() {
           <li key={ruta.id}>
             <p>{ruta.nombre}</p>
             <button onClick={() => eliminarRuta(ruta.id)}>Eliminar</button>
+=======
+import React from 'react';
+
+function ListaRutas({ rutas, eliminarRuta }) {
+  return (
+    <div>
+      <h3>Rutas Registradas</h3>
+      <ul>
+        {rutas.map((ruta) => (
+          <li key={ruta.id}>
+            {ruta.nombre}
+            <button onClick={() => eliminarRuta(ruta)}>Eliminar</button>
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
           </li>
         ))}
       </ul>

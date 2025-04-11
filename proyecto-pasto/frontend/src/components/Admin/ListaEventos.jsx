@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 
 function ListaEventos() {
@@ -35,18 +36,29 @@ function ListaEventos() {
       .catch((error) => console.error('Error:', error));
   };
 
+=======
+import React from 'react';
+
+function ListaEventos({ eventos, editarEvento, eliminarEvento }) {
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
   return (
     <div>
       <h3>Eventos del Carnaval</h3>
       <ul>
         {eventos.map((evento) => (
           <li key={evento.id}>
+<<<<<<< HEAD
             <p>{evento.nombre}</p>
             <p>{evento.descripcion}</p>
             <button onClick={() => eliminarEvento(evento.id)}>Eliminar</button>
             <button onClick={() => editarEvento(evento.id, { nombre: 'Evento Actualizado', descripcion: 'Descripción actualizada' })}>
               Editar
             </button>
+=======
+            {evento.nombre}
+            <button onClick={() => editarEvento(evento)}>Editar</button>
+            <button onClick={() => eliminarEvento(evento)}>Eliminar</button>
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
           </li>
         ))}
       </ul>
@@ -55,4 +67,7 @@ function ListaEventos() {
 }
 
 export default ListaEventos;
+<<<<<<< HEAD
 
+=======
+>>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
