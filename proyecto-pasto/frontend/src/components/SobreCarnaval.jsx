@@ -1,54 +1,85 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
+import './StyleCarnaval.css'; // Importa el nuevo archivo CSS
 
 function SobreCarnaval() {
     return (
-        <div className="container mt-5">
+        <div className="container-fluid bg-light py-5">
             <div className="row justify-content-center">
-        <div className="col-md-8 text-center">
-            <h1>Sobre el Carnaval de Negros y Blancos</h1>
+                <div className="col-md-8">
+                    <div className="card shadow-sm">
+                        <div className="card-body">
+                            <h1 className="card-title text-center mb-4">CARNAVAL DE NEGROS Y BLANCOS</h1>
+                            <img
+                                src="../public/Img_Video/corpocarn.jpg"
+                                alt="Carnaval"
+                                className="img-fluid rounded mt-3"
+                            />
+                            <br></br>
+                            <br></br>
 
-            <h2 className="text-dark mt-4"> Historia y origen del Carnaval</h2>
-            <p className="text-justify">
-                El Carnaval de Negros y Blancos tiene sus raíces en las celebraciones precolombinas de los pueblos indígenas Pastos y Quillacingas, quienes realizaban rituales en honor al Sol y la Luna. Con la llegada de los españoles, estas tradiciones se fusionaron con influencias europeas y africanas, creando un sincretismo cultural que dio lugar al Carnaval actual. El origen formal del Carnaval se remonta al siglo XVI, aunque la fecha oficial de celebración se estableció en el siglo XIX.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3">HISTORIA Y ORIGEN DEL CARNAVAL</h3>
+                            <p className="card-text text-justify">
+                                El Carnaval de Negros y Blancos tiene sus raíces en las celebraciones precolombinas de los pueblos indígenas Pastos y Quillacingas, quienes realizaban rituales en honor al Sol y la Luna. Con la llegada de los españoles, estas tradiciones se fusionaron con influencias europeas y africanas, creando un sincretismo cultural que dio lugar al Carnaval actual. El origen formal del Carnaval se remonta al siglo XVI, aunque la fecha oficial de celebración se estableció en el siglo XIX.
+                            </p>
+                            <br></br>
+                            <br></br>
 
-            <h2 > Significado y simbolismo de los diferentes días</h2>
-            <p className="text-justify">
-                <strong>Día de Negros (5 de enero):</strong> Este día se celebra con pintura negra, simbolizando la unión y la igualdad. Tiene sus raíces en la tradición africana de pintar las paredes blancas de Popayán de negro.
-            </p>
-            <p className="text-justify">
-                <strong>Día de Blancos (6 de enero):</strong> Iniciado en 1912, este día se caracteriza por el uso de polvos blancos, simbolizando la alegría y la diversión.
-            </p>
-            <p className="text-justify">
-                <strong>Desfile Magno:</strong> Es el evento central del Carnaval, donde se despliegan comparsas, disfraces y figuras gigantes, mostrando la riqueza cultural de la región.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3"> DIAS MAS IMPORTANTES</h3>
+                            <p className="card-text text-justify">
+                                <strong>Día de Negros (5 de enero):</strong> Este día se celebra con pintura negra, simbolizando la unión y la igualdad. Tiene sus raíces en la tradición africana de pintar las paredes blancas de Popayán de negro.
+                            </p>
+                            <p className="card-text text-justify">
+                                <strong>Día de Blancos (6 de enero):</strong> Iniciado en 1912, este día se caracteriza por el uso de polvos blancos, simbolizando la alegría y la diversión.
+                            </p>
+                            <p className="card-text text-justify">
+                                <strong>Desfile Magno:</strong> Es el evento central del Carnaval, donde se despliegan comparsas, disfraces y figuras gigantes, mostrando la riqueza cultural de la región.
+                            </p>
+                            <br></br>
+                            <br></br>
 
-            <h2 className="text-dark mt-4"> Personajes emblemáticos del Carnaval</h2>
-            <p className="text-justify">
-                <strong>El Afilador:</strong> Aunque no es mencionado específicamente en los textos, personajes como el Rey Momo y la Reina son figuras destacadas. El Rey Momo es el rey del Carnaval, mientras que la Reina es elegida anualmente para representar la belleza y la cultura local.
-            </p>
-            <p className="text-justify">
-                <strong>Rey Momo y la Reina:</strong> Son figuras centrales en el Carnaval, representando la alegría y la tradición.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3 ">PERSONAJES EMBLEMATICOS</h3>
+                            <p className="card-text text-justify">
+                            </p>
+                            <p className="card-text text-justify">
+                                <strong>Rey Momo y la Reina:</strong> Son figuras centrales en el Carnaval, representando la alegría y la tradición.En el Carnaval de Negros y Blancos, el Rey Momo y la Reina son figuras centrales que personifican la alegría y la tradición. El Rey Momo, representación de la burla y el sarcasmo, es el encargado de abrir el carnaval, invitando a la gente a disfrutar de la fiesta. La Reina, elegida anualmente,
+                                simboliza la belleza, la cultura y el espíritu festivo de la región. Además de estos, otros personajes emblemáticos incluyen a El Afilador, aunque no siempre mencionado, que encarna el ingenio y la picardía popular. Estos personajes, a través de sus disfraces, comparsas y actos, transmiten la esencia del carnaval y su rica herencia cultural.
+                            </p>
+                            <br></br>
+                            <br></br>
 
-            <h2 className="text-dark mt-4"> Tradiciones y rituales del Carnaval</h2>
-            <p className="text-justify">
-                Las tradiciones incluyen el uso de pinturas negras y blancas, desfiles, comparsas y la coronación de la Reina. Además, se realizan actividades como conciertos y carreras durante el pre-carnaval.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3 ">TRADICIONES Y RITUALES DEL CARNAVAL</h3>
+                            <p className="card-text text-justify">
+                            Las tradiciones y rituales del Carnaval de Negros y Blancos incluyen el uso de pinturas negra y blanca, que simbolizan la unión e igualdad y la alegría y diversión respectivamente, así como desfiles, comparsas y la coronación de la Reina.
+                            Adicionalmente, el pre-carnaval se celebra con actividades como conciertos y carreras. Durante los días del carnaval, las calles de Pasto se llenan de música, danzas y representaciones teatrales, donde participan personas de todas las edades.
+                            Las familias y comunidades se unen para construir carrozas y disfraces elaborados, mostrando la creatividad y el espíritu festivo de la región. Los rituales también incluyen ofrendas a la Pachamama (Madre Tierra), agradeciendo por la abundancia y prosperidad.
+                            </p>
+                            <br></br>
+                            <br></br>
 
-            <h2 className="text-dark mt-4"> Música y danzas típicas</h2>
-            <p className="text-justify">
-                La música y las danzas son fundamentales, con ritmos tradicionales que reflejan la mezcla cultural de la región. Las danzas incluyen comparsas y bailes al son de la música regional.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3">MUSICA Y DANZAS TIPICAS </h3>
+                            <p className="card-text text-justify">
+                            La música y las danzas en el Carnaval de Negros y Blancos son una expresión vibrante de la rica herencia cultural de la región. Los ritmos tradicionales, como el son sureño, el bambuco y el vals, se fusionan con influencias indígenas, africanas y europeas, creando melodías únicas que invitan a bailar y celebrar.
+                            Las comparsas, grupos de bailarines y músicos, desfilan por las calles mostrando trajes coloridos y coreografías elaboradas. Los bailes al son de la música regional son una parte esencial del carnaval, donde personas de todas las edades se unen para disfrutar y compartir la alegría de esta festividad.
+                            </p>
+                            <br></br>
+                            <br></br>
 
-            <h2 className="text-dark mt-4"> Artesanía relacionada con el Carnaval</h2>
-            <p className="text-justify">
-                La artesanía es crucial, destacándose las figuras gigantes hechas por artesanos locales, que se exhiben durante los desfiles. Estas figuras son un símbolo de la creatividad y la tradición del Carnaval.
-            </p>
+                            <h3 className="card-subtitle text-muted mb-3">ARTESANIA RELACIONDA CON EL CARNAVAL</h3>
+                            <p className="card-text text-justify">
+                            La artesanía en el Carnaval de Negros y Blancos es fundamental, destacándose las figuras gigantes que desfilan y que son elaboradas por artesanos locales. Estas esculturas monumentales, a menudo hechas de papel maché, madera y otros materiales, representan personajes, mitos y motivos del carnaval.
+                            Su creación requiere meses de trabajo y simboliza la creatividad, la tradición y el ingenio de los artesanos. Además de las figuras gigantes, se elaboran máscaras, disfraces, carrozas y otros elementos decorativos que enriquecen la experiencia visual del carnaval y reflejan la identidad cultural de la región.
+                            </p>
 
-            <img src="ruta/a/tu/imagen.jpg" alt="Paisaje Pastuso" className="img-fluid rounded mt-3" style={{ maxWidth: '100%', height: 'auto' }} />
-        </div>
-        </div>
+                            <img
+                                src="../public/Img_Video/baile.jpg"
+                                alt="Carnaval"
+                                className="img-fluid rounded mt-3"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
