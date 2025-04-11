@@ -21,7 +21,7 @@ function Introduccion() {
                                 Nuestra misión es brindarte una guía completa para explorar Pasto y sus alrededores, con datos históricos, recomendaciones turísticas y un vistazo a las tradiciones que hacen de esta región un destino único. Ya seas un viajero curioso o un amante de la cultura, *LaTierraDeLosPastos* tiene algo especial para ti.
                             </p>
                             <img
-                                src="ruta/a/tu/imagen.jpg" // Asegúrate de actualizar la ruta de la imagen
+                                src="../public/Img_Video/paisaje.jpg" // Asegúrate de actualizar la ruta de la imagen
                                 alt="Paisaje Pastuso"
                                 className="img-fluid rounded my-4"
                             />
