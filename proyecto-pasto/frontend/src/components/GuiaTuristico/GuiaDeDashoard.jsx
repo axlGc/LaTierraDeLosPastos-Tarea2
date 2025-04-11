@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 // Simulación de una API para almacenar datos
 const guias = [
-  { id: 1, nombre: 'Juan', descripcion: 'Guía turístico con experiencia' },
-  { id: 2, nombre: 'Ana', descripcion: 'Guía turística especializada en historia' },
+  { id: 1, nombre: 'Juan', descripcion: 'Guía turístico' },
+
 ];
 
 function GuiaDeDashoard() {

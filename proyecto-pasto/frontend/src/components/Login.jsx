@@ -1,62 +1,63 @@
-// src/components/Login.jsx
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 
-function Login({ onLogin }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const Login = ({ onLogin }) => {
+  const [correo, setCorreo] = useState('');
+  const [contrasena, setContrasena] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const response = await axios.post('http://localhost:3001/api/login', {
-        email,
-        password,
+      const response = await fetch('http://localhost:3001/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo: correo.trim(), contrasena }),
       });
 
-      const { token, role } = response.data;
-      localStorage.setItem('token', token);
-      localStorage.setItem('role', role);
+      const data = await response.json();
 
-      onLogin(); // Para redirigir al panel correspondiente
+      if (response.ok) {
+        setError('');
+        alert('Inicio de sesión exitoso');
+
+        // Guarda el usuario o token en localStorage si lo necesitas
+        localStorage.setItem('usuario', JSON.stringify(data.usuario));
+
+        // Ejecuta función de login (puede redirigir según el rol)
+        if (onLogin) onLogin(data.usuario);
+      } else {
+        setError(data.mensaje || 'Credenciales incorrectas');
+      }
     } catch (err) {
-      setError('Credenciales incorrectas');
+      console.error(err);
+      setError('Error en el servidor');
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center">Iniciar sesión</h2>
-
+    <div className="login-container">
+      <h2>Iniciar Sesión</h2>
+      <form onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Correo"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-2 mb-4 border rounded"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
           required
         />
         <input
           type="password"
           placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 mb-4 border rounded"
+          value={contrasena}
+          onChange={(e) => setContrasena(e.target.value)}
           required
         />
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
-
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          Ingresar
-        </button>
+        <button type="submit">Ingresar</button>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </form>
     </div>
   );
-}
+};
 
 export default Login;
