@@ -1,12 +1,15 @@
-# React + Vite
+# 🌄 La Tierra de los Pastos
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**¡Bienvenido a la aventura!**  
+Este proyecto es una aplicación web desarrollada con 💙 React, Node.js, Express y MySQL para promocionar los sitios turísticos más impactantes del sur de Colombia, en especial del territorio ancestral de los Pastos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Descripción
 
-## Expanding the ESLint configuration
+La Tierra de los Pastos es una plataforma web que permite a visitantes y administradores:
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Explorar sitios turísticos de la región.
+- Registrar, editar o eliminar información de estos lugares.
+- Gestionar usuarios y roles como guía turístico o administrador.
+- Conocer más sobre el patrimonio cultural del pueblo de los Pastos.
