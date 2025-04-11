@@ -33,13 +33,13 @@ function App() {
                 <Link className="nav-link" to="/sobre-carnaval">Sobre el Carnaval</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/guia-turistico">Guía Turístico</Link>
+                <Link className="nav-link" to="/guia-turistico"></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/admin">Admin Panel</Link>
+                <Link className="nav-link" to="/admin"></Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/iniciar-sesion">Iniciar Sesión</Link>
+                <Link className="nav-link" to="/iniciar-sesion"></Link>
               </li>
               
             </ul>
