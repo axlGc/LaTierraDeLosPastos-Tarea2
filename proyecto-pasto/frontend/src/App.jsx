@@ -1,104 +1,61 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Login from './components/Login';
-import SobrePasto from './components/SobrePasto';
-import SobreCarnaval from './components/SobreCarnaval';
-import Introduccion from './components/Introduccion';
-<<<<<<< HEAD
-import Alojamientos from './components/GuiaTuristico/Alojamientos';
-import InfoContacto from './components/GuiaTuristico/InfoContacto';
-//import PanelPersonal from './components/GuiaTuristico/PanelPersonal';
-//import PuntosDeInteres from './components/GuiaTuristico/PuntosDeInteres';
-//import Restaurantes from './components/GuiaTuristico/Restaurantes';
-//import RutasTuristicas from './components/GuiaTuristico/RutasTuristicas';
-import AdminPanel from './components/Admin/Adminpanel'; // Importa el componente AdminPanel
-import navbarBackground from "../public/Img_Video/navbar.jpg"; // Ajusta la ruta según tu estructura
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import Navbar01 from './components/Navbar01.jsx';
+import SobrePasto from './feactures/pasto/SobrePasto.jsx';
+import CarnivalDays from './feactures/carnaval/CarnivalDays.jsx';
+import SobreCarnaval from './feactures/carnaval/SobreCarnaval.jsx';
+import Home from './feactures/pasto/Home.jsx';
+import Footer02 from './components/Footer02.jsx';
+import ListaEventos from './feactures/eventos/ListaEventos.jsx';
+import ListaEventos2 from './feactures/eventos/ListaEventos2.jsx';
+import ListaEventos3 from './feactures/eventos/ListaEventos3.jsx';
+import ListaEventos4 from './feactures/eventos/ListaEventos4.jsx';
+import ListaEventos5 from './feactures/eventos/ListaEventos5.jsx';
+import ListaEventos6 from './feactures/eventos/ListaEventos6.jsx';
+import Login from './feactures/auth/login.jsx';
+import Register from './feactures/auth/Register.jsx';
+import CoordinadorDashboard from './feactures/auth/CoordinadorDashboard.jsx';
+import Comentarios from './components/Comentarios.jsx';
+import './assets/style/appStyle01.css';
+import './assets/style/StyleCarnaval.css'; 
+
+import { AuthProvider } from './feactures/auth/AuthContext.jsx'; // <-- Importa el AuthProvider
+import ProtectedRoute from './feactures/auth/ProtectedRoute';
 
 function App() {
   return (
-
-    <Router>
-      <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundImage: `url(${navbarBackground})`, backgroundSize: 'cover', backgroundPosition: 'center', color: 'white' }}>
-        <div className="container-fluid">
-          <div className="d-flex justify-content-center">
-            <Link className="nav-link" to="/">Inicio</Link>
-          </div>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
-              <li className="nav-item" >
-                <Link className="nav-link" to="/sobre-pasto"  style={{ color: 'white' }} >Sobre Pasto</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/sobre-carnaval" style={{ color: 'white' }}>Sobre el Carnaval</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/guia-turistico"></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/admin"></Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/iniciar-sesion"></Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-
-
-      <Routes>
-        <Route path="/sobre-pasto" element={<SobrePasto />} />
-        <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
-        <Route path="/" element={<Introduccion />} />
-        <Route path="/admin" element={<AdminPanel />} /> {/* Ruta para el AdminPanel */}
-        <Route path="guia-turistico" element={<InfoContacto />} />
-
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Navbar01 />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre-pasto" element={<SobrePasto />} />
+          <Route path="/carnival-days" element={<CarnivalDays />} />
+          <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
+          <Route path="/listaeventos" element={<ListaEventos />} />  
+          <Route path="/listaeventos2" element={<ListaEventos2 />} />  
+          <Route path="/listaeventos3" element={<ListaEventos3 />} />  
+          <Route path="/listaeventos4" element={<ListaEventos4 />} />  
+          <Route path="/listaeventos5" element={<ListaEventos5 />} />  
+          <Route path="/listaeventos6" element={<ListaEventos6 />} />  
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/dashboard-coordinador"
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <CoordinadorDashboard />
+              </ProtectedRoute>
+            }
+          />
+        <Route path="/Comentarios" element={<Comentarios />} />
+        </Routes>
+        <Footer02 />
+      </Router>
+    </AuthProvider>
   );
-=======
-
-
-function App() {
-    return (
-        <Router>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <div className="d-flex justify-content-center">
-                        <Link className="nav-link" to="/">Inicio</Link>
-                    </div>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/sobre-pasto">Sobre Pasto</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/sobre-carnaval">Sobre el Carnaval</Link>
-                            </li>
-                            <li className="nav-item">
-                             <Link className="nav-link" to="/login">Acceso Guía/Admin</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/sobre-pasto" element={<SobrePasto />} />
-                <Route path="/sobre-carnaval" element={<SobreCarnaval />} />
-                <Route path="/" element={<Introduccion />} /> // Muestra la introducción en la página principal
-            </Routes>
-        </Router>
-    );
->>>>>>> cac3b98af3f3a6468f5604fa39826589fdee1333
 }
 
 export default App;
+
